@@ -136,7 +136,8 @@ function decideSignal(m1, m5, h1, d1) {
   tp: 2020,
   sl: 1990
 };
-  } catch (e) {
+  } 
+  catch (e) {
     console.error("decideSignal error", e);
     return null;
   }
