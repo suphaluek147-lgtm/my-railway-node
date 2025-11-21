@@ -202,7 +202,7 @@ app.get("/", (req, res) => {
 app.get("/status", (req, res) => {
   res.json({ ok: true, lastSignal: lastSent, symbol: SYMBOL });
 });
-... โค้ดส่วนบนทั้งหมด ....
+// ... โค้ดส่วนบนทั้งหมด ....
 
 //////////////////////////////////////////////
 //        TELEGRAM WEBHOOK (NEW)           //
