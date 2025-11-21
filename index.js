@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 
-const TOKEN = "8496137521:AAEwyr8ZG42STcYkUKqzW70MRgJmVHUsnxg"; // แทนที่ด้วย token จริง
+const TOKEN = "8496137521:AAHxDRwhqfm7akbssSN9tBx4KDuVWhFXXXc"; // แทนที่ด้วย token จริง
 const TELEGRAM_URL = `https://api.telegram.org/bot${TOKEN}`;
 
 const app = express();
