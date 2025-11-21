@@ -1,4 +1,4 @@
-const express = require("express");
+จconst express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 
@@ -42,4 +42,16 @@ app.listen(PORT, () => {
 });
 app.get("/", (req, res) => {
     res.send("Server is running OK");
+});
+const express = require("express");
+const app = express();
+
+const PORT = process.env.PORT || 10000;
+
+app.get("/", (req, res) => {
+    res.send("Server is running OK");
+});
+
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
 });
