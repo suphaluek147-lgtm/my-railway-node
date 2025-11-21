@@ -4,7 +4,7 @@ const express = require("express");
 const fetch = require("node-fetch");
 
 const app = express();
-app.use(express.json());   // ← ต้องมี
+app.use(express.json());
 const PORT = process.env.PORT || 10000;
 
 const API_BASE = process.env.DATA_API_BASEURL || "https://api.twelvedata.com";
