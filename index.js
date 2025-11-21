@@ -201,7 +201,45 @@ app.get("/", (req, res) => {
 app.get("/status", (req, res) => {
   res.json({ ok: true, lastSignal: lastSent, symbol: SYMBOL });
 });
+... โค้ดส่วนบนทั้งหมด ....
+
+//////////////////////////////////////////////
+//        TELEGRAM WEBHOOK (NEW)           //
+//////////////////////////////////////////////
+
+app.post("/webhook", async (req, res) => {
+    try {
+        const message = req.body.message;
+
+        if (!message) return res.sendStatus(200);
+
+        const chatId = message.chat.id;
+        const text = message.text || "";
+
+        // ❌ ป้องกันตอบตัวเอง
+        if (message.from.is_bot) return res.sendStatus(200);
+
+        // ✔ อนุญาตเฉพาะ USER ที่กำหนดเท่านั้น
+        if (chatId.toString() !== TELEGRAM_CHAT_ID.toString()) {
+            return res.sendStatus(200);
+        }
+
+        // ✔ ส่งข้อความตอบกลับ
+        await sendTelegram(`คุณพิมพ์ว่า: ${text}`);
+
+        res.sendStatus(200);
+
+    } catch (e) {
+        console.error("Webhook error:", e);
+        res.sendStatus(500);
+    }
+});
+
+
+//////////////////////////////////////////////
+//        START SERVER                      //
+//////////////////////////////////////////////
 
 app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
+    console.log("Server running on port", PORT);
 });
