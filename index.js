@@ -130,12 +130,7 @@ function decideSignal(m1, m5, h1, d1) {
       const sl = Number((entry + Math.max(atrVal * 1.5, 10)).toFixed(2));
       return { side: "SELL", entry, tp, sl };
     }
-    return {
-  side: "BUY",
-  entry: 2000,
-  tp: 2020,
-  sl: 1990
-};
+    return null;
   } 
   catch (e) {
     console.error("decideSignal error", e);
